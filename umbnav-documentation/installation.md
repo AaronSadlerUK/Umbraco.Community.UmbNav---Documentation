@@ -1,3 +1,7 @@
+---
+icon: square-down
+---
+
 # Installation
 
 Depending on your Umbraco version you will need to use a different installation command / package from NuGet.
