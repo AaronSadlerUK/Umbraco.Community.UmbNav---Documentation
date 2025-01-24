@@ -9,5 +9,6 @@
     * [Standard](umbnav-documentation/examples/standard.md)
     * [Using Tag Helper](umbnav-documentation/examples/using-tag-helper.md)
     * [Using Extensions](umbnav-documentation/examples/using-extensions.md)
+  * [Telemetry](umbnav-documentation/telemetry.md)
   * [Issue tracker for V1, V2 & V3](https://github.com/AaronSadlerUK/Our.Umbraco.UmbNav/issues)
   * [Issue tracker for V4](https://github.com/AaronSadlerUK/Umbraco.Community.UmbNav/issues)
