@@ -5,6 +5,11 @@ description: What data do I collect and why?
 
 # Anonymous Telemetry
 
+{% hint style="warning" %}
+This is currently only in version 4.0.0+.\
+This will be added to version 3.0.0+ soon
+{% endhint %}
+
 By default, anonymous telemetry is sent to me on a new install, when you update Umbraco or update UmbNav.
 
 **Why do I collect this data?**
@@ -13,7 +18,7 @@ It is so that I can concentrate my development on the most used versions of Umbr
 
 **What data is collected?**
 
-We collect the following data:
+I collect the following data:
 
 
 
