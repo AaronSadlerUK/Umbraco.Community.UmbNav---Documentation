@@ -71,7 +71,7 @@ NuGet\Install-Package Our.Umbraco.UmbNav.Api
 The Package Manager command is intended to be used within the Package Manager Console in Visual Studio, as it uses the NuGet module's version of [Install-Package](https://docs.microsoft.com/nuget/reference/ps-reference/ps-ref-install-package).
 {% endhint %}
 
-### Umbraco 15
+### Umbraco 16+
 
 #### Umbraco.Community.UmbNav
 

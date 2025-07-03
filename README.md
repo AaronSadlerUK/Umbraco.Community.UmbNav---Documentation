@@ -25,12 +25,13 @@ Some features are not currently available in Version 4.x for Umbraco 15
 
 There are 3 versions of UmbNav, depending on the Umbraco version you are installing into you will need to use the version outlined below:
 
-| Umbraco Version           | UmbNav Version                       |
-| ------------------------- | ------------------------------------ |
-| Umbraco Version 8         | 1.x                                  |
-| Umbraco Version 9         | 1.x                                  |
-| Umbraco Version 10        | 2.x or 3.x                           |
-| Umbraco Versions 11 -> 13 | 3.x                                  |
-| Umbraco Version 14        | Not Supported                        |
-| Umbraco Version 15        | 4.x (Not all features available yet) |
+| Umbraco Version           | UmbNav Version                                                        |
+| ------------------------- | --------------------------------------------------------------------- |
+| Umbraco Version 16        | 4.x (Not all features available yet)                                  |
+| Umbraco Version 15        | 4.x (Not all features available yet) - No further development planned |
+| Umbraco Version 14        | Not Supported                                                         |
+| Umbraco Versions 11 -> 13 | 3.x                                                                   |
+| Umbraco Version 10        | 2.x - End-of-Life or 3.x                                              |
+| Umbraco Version 9         | 1.x - End-of-Life                                                     |
+| Umbraco Version 8         | 1.x - End-of-Life                                                     |
 
