@@ -6,6 +6,29 @@ icon: square-down
 
 Depending on your Umbraco version you will need to use a different installation command / package from NuGet.
 
+### Umbraco 17+
+
+#### Umbraco.Community.UmbNav
+
+To install the full package:\
+[https://www.nuget.org/packages/Umbraco.Community.UmbNav](https://www.nuget.org/packages/Umbraco.Community.UmbNav)
+
+{% code title=".NET CLI" %}
+```csharp
+dotnet add package Umbraco.Community.UmbNav
+```
+{% endcode %}
+
+{% code title="Package Manager" %}
+```
+NuGet\Install-Package Umbraco.Community.UmbNav
+```
+{% endcode %}
+
+{% hint style="info" %}
+The Package Manager command is intended to be used within the Package Manager Console in Visual Studio, as it uses the NuGet module's version of [Install-Package](https://docs.microsoft.com/nuget/reference/ps-reference/ps-ref-install-package).
+{% endhint %}
+
 ### Umbraco 8, 9, 10 -> 13
 
 #### Our.Umbraco.UmbNav.Web
@@ -64,29 +87,6 @@ dotnet add package Our.Umbraco.UmbNav.Api
 {% code title="Package Manager" %}
 ```powershell
 NuGet\Install-Package Our.Umbraco.UmbNav.Api
-```
-{% endcode %}
-
-{% hint style="info" %}
-The Package Manager command is intended to be used within the Package Manager Console in Visual Studio, as it uses the NuGet module's version of [Install-Package](https://docs.microsoft.com/nuget/reference/ps-reference/ps-ref-install-package).
-{% endhint %}
-
-### Umbraco 16+
-
-#### Umbraco.Community.UmbNav
-
-To install the full package:\
-[https://www.nuget.org/packages/Umbraco.Community.UmbNav](https://www.nuget.org/packages/Umbraco.Community.UmbNav)
-
-{% code title=".NET CLI" %}
-```csharp
-dotnet add package Umbraco.Community.UmbNav
-```
-{% endcode %}
-
-{% code title="Package Manager" %}
-```
-NuGet\Install-Package Umbraco.Community.UmbNav
 ```
 {% endcode %}
 
