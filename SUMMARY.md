@@ -6,7 +6,7 @@
   * [Configuration](umbnav-documentation/configuration.md)
   * [Upgrading](umbnav-documentation/upgrading.md)
   * [Examples](umbnav-documentation/examples/README.md)
-    * [Basic Navigation](umbnav-documentation/examples/basic-navigation.md)
+    * [Basic Navigation](umbnav-documentation/examples/standard.md)
     * [Bootstrap 5 Integration](umbnav-documentation/examples/bootstrap-5-integration.md)
     * [Breadcrumbs](umbnav-documentation/examples/breadcrumbs.md)
     * [Footer Navigation](umbnav-documentation/examples/footer-navigation.md)

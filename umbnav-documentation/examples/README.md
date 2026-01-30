@@ -74,6 +74,6 @@ icon: code
 
 ### Next Steps
 
-* [Basic Navigation](basic-navigation.md) - Start with a simple implementation
+* [Basic Navigation](standard.md) - Start with a simple implementation
 * TagHelper Reference - Full TagHelper documentation
 * Extensibility - Customization options
