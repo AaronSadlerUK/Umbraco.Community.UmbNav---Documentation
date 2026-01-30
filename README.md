@@ -34,3 +34,14 @@ There are 3 versions of UmbNav, depending on the Umbraco version you are install
 | Umbraco Version 9         | 1.x - End-of-Life                                                                             |
 | Umbraco Version 8         | 1.x - End-of-Life                                                                             |
 
+| Umbraco Version           | UmbNav Version                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------------------- |
+| Umbraco Version 17        | 4.0.0 - Latest - Active development                                                           |
+| Umbraco Version 16        | 4.0.0-beta0030 - (Not all features available) - No further development planned                |
+| Umbraco Version 15        | 4.0.0-beta0001 - 4.0.0-beta0021 (Not all features available) - No further development planned |
+| Umbraco Version 14        | Not Supported                                                                                 |
+| Umbraco Versions 11 -> 13 | 3.x                                                                                           |
+| Umbraco Version 10        | 2.x - End-of-Life or 3.x                                                                      |
+| Umbraco Version 9         | 1.x - End-of-Life                                                                             |
+| Umbraco Version 8         | 1.x - End-of-Life                                                                             |
+
