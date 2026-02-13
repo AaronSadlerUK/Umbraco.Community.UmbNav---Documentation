@@ -35,6 +35,9 @@ interface UmbNavItemTypeRegistration {
     /** Whether items of this type can have children */
     allowChildren?: boolean;
 
+    /** Default values to apply when creating an item of this type */
+    defaultValues?: Partial<ModelEntryType>;
+
     /** Custom render function for display */
     render?: (item: ModelEntryType) => TemplateResult;
 
@@ -46,20 +49,40 @@ interface UmbNavItemTypeRegistration {
 }
 ```
 
+### Default Behavior (No Modal)
+
+By default, custom item types are added **directly** when their button is clicked — no modal dialog is opened. The item is created using the `defaultValues` from the registration.
+
+When no `editModalToken` is provided:
+- The item's name is displayed as **plain text** (not a clickable link)
+- The **Edit button is hidden** from the toolbar
+- The item can still be deleted and reordered via drag-and-drop
+
+This is ideal for simple item types like dividers or separators that don't need user input.
+
+To enable editing, provide an `editModalToken` (and optionally a `createModalToken`) — see [Type with Custom Modal](#type-with-custom-modal) below.
+
 ### Examples
 
 #### Simple Custom Type
 
-A basic custom type without special rendering:
+A basic custom type that is added directly without a modal:
 
 ```typescript
 UmbNavExtensionRegistry.registerItemType({
     type: 'divider',
-    label: 'Divider',
+    label: 'Add Divider',
     icon: 'icon-split-alt',
-    allowChildren: false
+    allowChildren: false,
+    defaultValues: {
+        name: '---',
+        icon: 'icon-split-alt',
+        itemType: 'divider'
+    }
 });
 ```
+
+Since no `editModalToken` is provided, clicking "Add Divider" immediately creates the item with the specified `defaultValues`. The item name displays as plain text and has no edit button.
 
 #### Type with Custom Rendering
 

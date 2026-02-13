@@ -22,7 +22,7 @@ public class UmbNavItem
     public UmbNavItemType ItemType { get; set; }
     public Guid? ContentKey { get; set; }
     public string? Anchor { get; set; }
-    public bool Published { get; set; }
+    public bool? Published { get; set; }
     public IEnumerable<UmbNavItem>? Children { get; set; }
     public IPublishedContent? Content { get; set; }
     public int Level { get; set; }
@@ -79,7 +79,7 @@ public enum UmbNavItemType
 | Property    | Type                 | Description                                               |
 | ----------- | -------------------- | --------------------------------------------------------- |
 | `Content`   | `IPublishedContent?` | Resolved content node (populated by Menu Builder Service) |
-| `Published` | `bool`               | Whether the linked content is published                   |
+| `Published` | `bool?`              | Whether the linked content is published (null for non-content items) |
 
 #### Hierarchy
 
@@ -222,7 +222,7 @@ var hasImage = item.ImageArray?.Any() == true;
 #### Is Published Content
 
 ```csharp
-var isPublished = item.Published && item.Content != null;
+var isPublished = item.Published == true && item.Content != null;
 ```
 
 #### Has Custom Classes
@@ -305,7 +305,7 @@ interface ModelEntryType {
     itemType: 'Link' | 'Document' | 'Title';
     contentKey?: string;
     anchor?: string;
-    published: boolean;
+    published?: boolean | null;
     children?: ModelEntryType[];
     level: number;
     depth?: number;
@@ -360,7 +360,8 @@ if (item.ItemType == UmbNavItemType.Document && item.Content != null)
 ```csharp
 // Items with unpublished content are filtered by default
 // But if you access raw data, check the Published property
-if (item.ItemType == UmbNavItemType.Document && !item.Published)
+// Published is nullable - it will be null for non-content items (e.g., custom types)
+if (item.ItemType == UmbNavItemType.Document && item.Published != true)
 {
     // Handle unpublished content
 }

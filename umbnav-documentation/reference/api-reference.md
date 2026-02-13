@@ -53,6 +53,7 @@ public class UmbNavItem
     public bool IncludeChildNodes { get; set; }
 
     // State
+    public bool? Published { get; set; }
     public bool IsActive { get; set; }
 }
 ```
@@ -468,7 +469,7 @@ interface UmbNavItemSlot {
 ```typescript
 interface UmbNavItemTypeConfig {
     /** Unique identifier */
-    alias: string;
+    type: string;
 
     /** Display name */
     label: string;
@@ -476,17 +477,20 @@ interface UmbNavItemTypeConfig {
     /** Icon name */
     icon: string;
 
-    /** Modal token for creating items */
-    createModalToken?: UmbModalToken<unknown, ModelEntryType>;
+    /** Whether items of this type can have children */
+    allowChildren?: boolean;
 
-    /** Modal token for editing items */
-    editModalToken?: UmbModalToken<unknown, ModelEntryType>;
-
-    /** Default values for new items */
+    /** Default values for new items (used when no createModalToken is provided) */
     defaultValues?: Partial<ModelEntryType>;
 
-    /** Visibility in add menu */
-    isVisible?: (config: UmbPropertyEditorConfigProperty[]) => boolean;
+    /** Custom render function for display */
+    render?: (item: ModelEntryType) => TemplateResult;
+
+    /** Modal token for creating items (if omitted, item is added directly with defaultValues) */
+    createModalToken?: UmbModalToken<unknown, ModelEntryType>;
+
+    /** Modal token for editing items (if omitted, the edit button and clickable name are hidden) */
+    editModalToken?: UmbModalToken<unknown, ModelEntryType>;
 }
 ```
 
@@ -514,6 +518,7 @@ class UmbNavItem extends UmbElementMixin(LitElement) {
     @property() hideIncludesChildNodes: boolean;
     @property() maxDepth: number;
     @property() currentDepth: number;
+    @property() editable: boolean;
     @property({ attribute: false }) itemData: ModelEntryType | null;
     @property({ attribute: false }) config: UmbPropertyEditorConfigProperty[];
 
