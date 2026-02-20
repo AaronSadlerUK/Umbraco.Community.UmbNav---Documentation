@@ -216,7 +216,7 @@ dotnet build
 1.  **Check registration**:
 
     ```typescript
-    import { UmbNavExtensionRegistry } from '/App_Plugins/UmbNav/dist/api.js';
+    import { UmbNavExtensionRegistry } from '@umbraco-community/umbnav/api';
 
     // Register on entry point load
     UmbNavExtensionRegistry.registerToolbarAction({

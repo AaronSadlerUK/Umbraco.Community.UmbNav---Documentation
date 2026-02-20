@@ -126,7 +126,7 @@ After upgrade, verify the migration completed:
 
 1. **New extension system** - Old AngularJS extensions won't work
 2. **Lit components** - UI rebuilt with Lit web components
-3. **New API imports** - Use `/App_Plugins/UmbNav/dist/api.js`
+3. **New API imports** - Use `@umbraco-community/umbnav/api`
 
 **Backend (C#)**
 

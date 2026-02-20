@@ -9,7 +9,7 @@ description: >-
 ### Basic Registration
 
 ```typescript
-import { UmbNavExtensionRegistry } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavExtensionRegistry } from '@umbraco-community/umbnav/api';
 import { html } from '@umbraco-cms/backoffice/external/lit';
 
 UmbNavExtensionRegistry.registerItemSlot({

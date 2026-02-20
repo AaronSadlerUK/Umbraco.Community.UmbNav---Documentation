@@ -52,7 +52,7 @@ UmbNav follows a layered architecture that allows customization at multiple leve
 The easiest way to extend UmbNav in the backoffice is through the Extension Registry:
 
 ```typescript
-import { UmbNavExtensionRegistry } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavExtensionRegistry } from '@umbraco-community/umbnav/api';
 
 // Add a toolbar button
 UmbNavExtensionRegistry.registerToolbarAction({
@@ -85,7 +85,7 @@ UmbNavExtensionRegistry.registerItemSlot({
 For deeper customization, subclass UmbNav components:
 
 ```typescript
-import { UmbNavItem, UmbNavItemStyles } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavItem, UmbNavItemStyles } from '@umbraco-community/umbnav/api';
 
 @customElement('my-custom-item')
 class MyCustomItem extends UmbNavItem {
@@ -214,7 +214,7 @@ import {
     UMBNAV_TEXT_ITEM_MODAL,
     UMBNAV_SETTINGS_ITEM_MODAL,
     UMBNAV_VISIBILITY_ITEM_MODAL
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 ### Best Practices

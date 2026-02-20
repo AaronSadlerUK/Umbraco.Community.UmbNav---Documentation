@@ -24,7 +24,7 @@ import {
     UmbNavItemStyles,
     UmbNavGroupStyles,
     UmbNavPropertyEditorUIStyles
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 ### Extending UmbNavItem
@@ -32,7 +32,7 @@ import {
 #### Basic Subclass
 
 ```typescript
-import { UmbNavItem, UmbNavItemStyles } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavItem, UmbNavItemStyles } from '@umbraco-community/umbnav/api';
 import { customElement, html, css } from '@umbraco-cms/backoffice/external/lit';
 
 @customElement('my-custom-umbnav-item')

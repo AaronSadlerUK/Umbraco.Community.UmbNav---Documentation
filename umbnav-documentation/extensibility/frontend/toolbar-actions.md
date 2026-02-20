@@ -9,7 +9,7 @@ description: >-
 ### Basic Registration
 
 ```typescript
-import { UmbNavExtensionRegistry } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavExtensionRegistry } from '@umbraco-community/umbnav/api';
 
 UmbNavExtensionRegistry.registerToolbarAction({
     alias: 'my-custom-action',
@@ -165,7 +165,7 @@ UmbNavExtensionRegistry.registerToolbarAction({
 Use existing UmbNav modals:
 
 ```typescript
-import { UMBNAV_SETTINGS_ITEM_MODAL } from '/App_Plugins/UmbNav/dist/api.js';
+import { UMBNAV_SETTINGS_ITEM_MODAL } from '@umbraco-community/umbnav/api';
 
 UmbNavExtensionRegistry.registerToolbarAction({
     alias: 'quick-settings',

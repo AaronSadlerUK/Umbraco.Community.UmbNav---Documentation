@@ -19,7 +19,7 @@ import {
     UmbNavItemSlot,
     ModelEntryType,
     UmbNavActionContext
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 #### Creating an Extension Package
@@ -30,7 +30,7 @@ import {
 
 ```typescript
 // my-extension/src/index.ts
-import { UmbNavExtensionRegistry } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavExtensionRegistry } from '@umbraco-community/umbnav/api';
 import { html } from '@umbraco-cms/backoffice/external/lit';
 
 // Register extensions when the module loads
@@ -100,7 +100,7 @@ See Custom Item Types for complete documentation.
 For deeper customization, subclass UmbNav's Lit components:
 
 ```typescript
-import { UmbNavItem, UmbNavItemStyles } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavItem, UmbNavItemStyles } from '@umbraco-community/umbnav/api';
 import { customElement, html, css } from '@umbraco-cms/backoffice/external/lit';
 
 @customElement('my-custom-umbnav-item')
@@ -129,7 +129,7 @@ See Extending Components for complete documentation.
 #### Extension Registry
 
 ```typescript
-import { UmbNavExtensionRegistry } from '/App_Plugins/UmbNav/dist/api.js';
+import { UmbNavExtensionRegistry } from '@umbraco-community/umbnav/api';
 ```
 
 The singleton registry for all extensions.
@@ -144,7 +144,7 @@ import type {
     ModelEntryType,         // Menu item data type
     Guid,                   // GUID type alias
     ImageItem               // Image data type
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 #### Components
@@ -154,7 +154,7 @@ import {
     UmbNavItem,                        // Menu item component
     UmbNavGroup,                       // Item container component
     UmbNavSorterPropertyEditorUIElement // Property editor component
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 #### Styles
@@ -164,7 +164,7 @@ import {
     UmbNavItemStyles,           // Styles for UmbNavItem
     UmbNavGroupStyles,          // Styles for UmbNavGroup
     UmbNavPropertyEditorUIStyles // Styles for property editor
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 #### Modal Tokens
@@ -174,7 +174,7 @@ import {
     UMBNAV_TEXT_ITEM_MODAL,      // Text item editing modal
     UMBNAV_SETTINGS_ITEM_MODAL,  // Settings modal
     UMBNAV_VISIBILITY_ITEM_MODAL // Visibility settings modal
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 ### The Action Context

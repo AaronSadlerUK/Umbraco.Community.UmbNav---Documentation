@@ -569,7 +569,7 @@ import {
     Guid,
     UmbNavItem,
     UmbNavItemStyles
-} from '/App_Plugins/UmbNav/dist/api.js';
+} from '@umbraco-community/umbnav/api';
 ```
 
 ***
