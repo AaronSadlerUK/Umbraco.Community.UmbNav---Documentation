@@ -35,10 +35,12 @@ icon: up
 
 UmbNav 4.x includes an automatic migration system that runs on first startup after upgrading. This migration:
 
-1. **Detects legacy data types** using the old `AaronSadler.UmbNav` property editor alias
-2. **Transforms content data** from the old format to the new format
+1. **Detects legacy data types** using the old `AaronSadler.UmbNav` property editor alias, or one of the Meganav aliases (`Our.Umbraco.Meganav`, `AaronSadler.MegaNavV8`, `Meganav`, `Cogworks.Meganav`)
+2. **Transforms content data** from the old format to the new format, including values inside Block List, Block Grid and Rich Text blocks (nested to any depth)
 3. **Updates data type definitions** to use the new `Umbraco.Community.UmbNav` alias
 4. **Preserves all menu data** including nested children, images, and settings
+
+Values are recognised by their shape, so legacy or Meganav data stored on a property that already uses `Umbraco.Community.UmbNav` is converted too. Items already in the 4.x format are left untouched, which makes the migration safe to run again.
 
 **What Gets Migrated**
 
@@ -64,6 +66,20 @@ UmbNav 4.x includes an automatic migration system that runs on first startup aft
 | `description`        | `description`         | Preserved                        |
 | `icon`               | `icon`                | Preserved                        |
 
+**Meganav Data**
+
+| Meganav Property        | New Property                        | Notes                                                     |
+| ----------------------- | ----------------------------------- | --------------------------------------------------------- |
+| `title`                 | `name`                              | When empty, the picked node's name is used                |
+| `udi` / `id`            | `contentKey`                        | `id` (MeganavV8) is looked up to find the node's key      |
+| `url`                   | `url`                               | Items without a node become `External`, or `Title` if no url |
+| `target`, `anchor`      | `target`, `anchor`                  | Preserved                                                 |
+| `visible: false`        | `hideLoggedIn` + `hideLoggedOut`    | Kept, but hidden from everyone                            |
+| `itemTypeId`, `settings`| —                                   | No UmbNav equivalent, dropped                             |
+| `children`              | `children`                          | Recursively migrated                                      |
+
+Meganav data type configuration is not carried over; the switched data types start with UmbNav's default configuration.
+
 **Item Type Mapping**
 
 | Old Type      | New Type   |
@@ -78,15 +94,20 @@ The migration runs automatically via Umbraco's package migration system:
 
 ```
 UmbNavPackageMigrationPlan
-└── UmbNavLegacyModelMigration (786E9C82-8621-4B0E-8E3A-7A7AAD61B820)
-    ├── Find all data types with "AaronSadler.UmbNav" alias
-    ├── Find all content types using those data types
+├── UmbNavLegacyModelMigration (786E9C82-8621-4B0E-8E3A-7A7AAD61B820)
+└── UmbNavLegacyModelMigration (5D0C6E1A-3F7B-4E2B-9C1D-8A4F2B6E7C30)
+    ├── Find all data types with a legacy UmbNav or Meganav alias
+    ├── Find document types with a nav property, or with block properties
+    │   when a nav property lives on an element type
     ├── For each content node:
-    │   ├── Read legacy JSON value
-    │   ├── Transform to new format
-    │   └── Save updated content
-    └── Update data type to new alias
+    │   ├── Read the nav value, or walk the block value to find nested nav values
+    │   ├── Transform items still in a legacy shape
+    │   ├── Save updated content
+    │   └── Republish it if it was published with no pending changes
+    └── Update data types to the new alias
 ```
+
+The second step runs the same migration again for sites that upgraded before it could reach block content or Meganav data.
 
 **Verifying Migration**
 
@@ -107,7 +128,7 @@ After upgrade, verify the migration completed:
 **Migration didn't run:**
 
 * Check if `umbracoKeyValue` table has the migration key
-* Delete the key to re-run: `786E9C82-8621-4B0E-8E3A-7A7AAD61B820`
+* Set the `Umbraco.Core.Upgrader.State+UmbNav` value back to `786E9C82-8621-4B0E-8E3A-7A7AAD61B820` to re-run the second step, or delete it to re-run both
 
 **Content not migrated:**
 
